@@ -1,0 +1,141 @@
+from __future__ import print_function
+from mailmerge import MailMerge
+import docx
+
+# Debtor information here:
+Name = 'NAME OF CLIENT'
+Filing_Date = 'MONTH YY, XXXX'
+MAJL_Date = 'DATE'
+Case_Number = 'Z:YY-XXXXX'
+Property_Address = '123 AMERICAN AVE, AMERICAN CITY, AR, 72022'
+LEGAL_Address = ' Subdivision XXX LONGITUDE / LATITUDE, ETC.'
+DISTRICT = 'EASTERN'
+DIVISION = 'CENTRAL'
+Trustee = 'TRUSTEE NAME'
+
+# Creditor Information
+Creditor = 'CREDITOR NAME'
+Creditor_Address = '456 CREDITOR STREET, CREDITOR CITY, AR 72022'
+Registered_Agent_Address = ' CREDITOR REPRESENTATIVE ATTORNEY AND ADDRESS '
+Number_of_Creditors = '3'
+
+# Lawsuit Information
+Lawsuit_Date = 'MONTH YY, XXXX'
+Debtor_County = 'Jefferson'
+Court_County = 'Jefferson'
+District_or_Circuit = 'District'
+Lawsuit_Case_Number = 'PBXX-12345'
+Court_Division = 'Civil'
+
+# Judgment Information
+JG_Amount = '1000.00'
+Court_costs = '1000.00'
+Attorney_Fees = '100.00'
+TotalJG = '10000.00'
+Interest = '10.00%'
+
+#GENERATES THE MOTION FOR THE COURT
+
+template_1= "1_Motion_MAJL.docx"
+document_1 = MailMerge(template_1)
+document_1.merge(
+    Name=Name,
+    MAJL_Date=MAJL_Date,
+    Case_Number=Case_Number,
+    Creditor=Creditor,
+    Creditor_Address=Creditor_Address,
+    Registered_Agent_Address=Registered_Agent_Address,
+    DISTRICT=DISTRICT,
+    DIVISION=DIVISION,
+    Filing_Date=Filing_Date,
+    Lawsuit_Date=Lawsuit_Date,
+    Debtor_County=Debtor_County,
+    Court_County=Court_County,
+    District_or_Circuit=District_or_Circuit,
+    Lawsuit_Case_Number=Lawsuit_Case_Number,
+    Court_Division=Court_Division,
+    LEGAL_Address=LEGAL_Address,
+    Property_Address=Property_Address,
+    JG_Amount=JG_Amount,
+    Court_costs=Court_costs,
+    Attorney_Fees=Attorney_Fees,
+    TotalJG=TotalJG,
+    Interest=Interest,
+)
+document_1.write('Motion.docx')
+
+#GENERATES THE NOTICE LETTER
+
+template_2= "2_Notice_MAJL.docx"
+document_2 = MailMerge(template_2)
+document_2.merge(
+    Name=Name,
+    MAJL_Date=MAJL_Date,
+    Case_Number=Case_Number,
+    Creditor=Creditor,
+    Creditor_Address=Creditor_Address,
+    Registered_Agent_Address=Registered_Agent_Address,
+    DISTRICT=DISTRICT,
+    DIVISION=DIVISION,
+    Filing_Date=Filing_Date,
+    Lawsuit_Date=Lawsuit_Date,
+    Debtor_County=Debtor_County,
+    Court_County=Court_County,
+    District_or_Circuit=District_or_Circuit,
+    Lawsuit_Case_Number=Lawsuit_Case_Number,
+    Court_Division=Court_Division,
+    LEGAL_Address=LEGAL_Address,
+    Property_Address=Property_Address,
+    JG_Amount=JG_Amount,
+    Court_costs=Court_costs,
+    Attorney_Fees=Attorney_Fees,
+    TotalJG=TotalJG,
+    Interest=Interest,
+)
+document_2.write('Notice.docx')
+
+#GENERATES THE COURT ORDER
+
+template_3= "3_Order_MAJL.docx"
+document_3 = MailMerge(template_3)
+document_3.merge(
+    Name=Name,
+    MAJL_Date=MAJL_Date,
+    Case_Number=Case_Number,
+    Creditor=Creditor,
+    Creditor_Address=Creditor_Address,
+    Registered_Agent_Address=Registered_Agent_Address,
+    DISTRICT=DISTRICT,
+    DIVISION=DIVISION,
+    Filing_Date=Filing_Date,
+    Lawsuit_Date=Lawsuit_Date,
+    Debtor_County=Debtor_County,
+    Court_County=Court_County,
+    District_or_Circuit=District_or_Circuit,
+    Lawsuit_Case_Number=Lawsuit_Case_Number,
+    Court_Division=Court_Division,
+    LEGAL_Address=LEGAL_Address,
+    Property_Address=Property_Address,
+    JG_Amount=JG_Amount,
+    Court_costs=Court_costs,
+    Attorney_Fees=Attorney_Fees,
+    TotalJG=TotalJG,
+    Interest=Interest,
+)
+document_3.write('Order.docx')
+
+#GENERATES THE FEE APPLICATION
+
+template_4 = "4_Fee_App_MAJL.docx"
+document_4 = MailMerge(template_4)
+document_4.merge(
+    Name=Name,
+    MAJL_Date=MAJL_Date,
+    Case_Number=Case_Number,
+    DISTRICT=DISTRICT,
+    DIVISION=DIVISION,
+    Trustee=Trustee,
+    Number_of_Creditors=Number_of_Creditors,
+    Property_Address=Property_Address
+)
+document_4.write('FeeApp.docx')
